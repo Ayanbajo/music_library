@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react'
 import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
-import GalleryItem from './components/GalleryItem'
+import { DataContext } from './context/DataContext'
+
 
 
 const App = () => {
@@ -40,7 +40,10 @@ const App = () => {
       <div>
         <h1 className='App'>{message}</h1>
           <SearchBar handleSearch={handleSearch} />
-          <Gallery data={data} />
+          <DataContext.Provider value={data}>
+           <Gallery />
+          </DataContext.Provider>
+          
       </div>
   )
 }
