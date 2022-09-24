@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState, Suspense } from 'react'
 import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
-import GalleryItem from './components/GalleryItem'
+import Spinner from './components/Spinner'
 import {createResource as fetchData} from './helper'
 
 
@@ -39,9 +38,9 @@ const App = () => {
   }
 
   const renderGallery = () => {
-    if(data){
+    if(data) {
         return (
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={<Spinner />}>
                 <Gallery data={data} />
             </Suspense>
         )
